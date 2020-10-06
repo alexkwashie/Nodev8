@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
         path: '/',
         hasProducts: products.length > 0,
         activeShop: true,
-        //layout: true //by this being true it will not use the 
+        //layout: true //by this being true it will not use the default main handlebar file but allows u to assign a different path/location
     });
 });
 

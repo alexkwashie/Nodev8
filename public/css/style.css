@@ -45,9 +45,8 @@ main {
 }
 
 .main-header__item a:hover,
-.main-header__item a:active,
 .main-header__item a.active {
-  color: #ffeb3b;
+  color: #8c0196;
 }
 
 .grid {
@@ -103,6 +102,6 @@ main {
 
 .btn:hover,
 .btn:active {
-  background-color: #00695c;
+  background-color: #05368b;
   color: white;
 }

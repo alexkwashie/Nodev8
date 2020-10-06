@@ -3,15 +3,11 @@ const path = require('path');
 
 const express = require('express')
 const bodyParser = require('body-parser');
-const expressHbs = require('express-handlebars');
 
 const app = express();
 
-//Setting up the handlebar extension
-app.engine('handlebars', expressHbs());
-
-//Setting up app.js to render all templating through the handlebars file in the views folder
-app.set('view engine', 'handlebars');
+//Setting up app.js to render all templating through the 'ejs' file in the views folder
+app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const adminData = require('./routes/admin');
@@ -27,7 +23,7 @@ app.use(shopRoutes);
 
 //add 404 not found page
 app.use((req,res,next)=>{
-    res.status(404).render('404',{pageTitle: 'Page Not Found'});
+    res.status(404).render('404',{pageTitle: 'Page Not Found!'});
         // create a 'layouts/main.handlebars' and a views/404.handlebars file before this will render
 });
 
