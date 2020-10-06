@@ -44,7 +44,7 @@ router.get('/add-product', (req, res, next) => {
     res.render('shop', {
         prods:products,
         pageTitle: 'Admin Page',
-        path: '/admin',
+        path: '/admin/add-product',
         //layout: true //by this being true it will not use the default main handlebar file but allows u to assign a different path/location
     });
 });
