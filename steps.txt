@@ -1,0 +1,11 @@
+npm init
+npm install --save ejs body-parser
+add nodemon - npm install --save-dev nodemon
+
+add the following to the package.json file (under "test"):
+    "start": "nodemon app.js"
+
+add and create app.js file
+
+Assignment:
+-Create a similar app the previous application but for users names:
