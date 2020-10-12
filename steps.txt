@@ -8,4 +8,4 @@ add the following to the package.json file (under "test"):
 add and create app.js file
 
 Assignment:
--Create a similar app the previous application but for users names:
+-Create a similar app the like previous application but for users names:
