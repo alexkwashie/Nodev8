@@ -1,10 +1,11 @@
 const path = require('path');
 const express = require('express');
 
+const productsController = require('../controller/products');
+
+const postProductController = require('../controller/products');
 
 const router = express.Router();
-
-const products = [];
 
 /*
 //Using Middlewares
@@ -15,27 +16,10 @@ router.get('/',(req, res, next) => {
 });
 */
 
-
-router.get('/add-product', (req, res, next) => {
-
-    res.render('add-product', {
-        prods:products,
-        pageTitle: 'Admin Page',
-        path: 'admin/add-product',
-        productCSS:true,
-        activeAdd:true,
-        //layout: true //by this being true it will not use the default main handlebar file but allows u to assign a different path/location
-    });
-});
-
+router.get('/add-product', productsController.getAddProduct);
 
 //  /admin/add-product => POST
-router.post('/add-product', (req, res, next)=>{
-    products.push({ title: req.body.title});
-    console.log(req.body)
-    res.redirect('/');
+router.post('/add-product',postProductController.postProduct);
 
-});
 
-exports.routes = router;
-exports.products = products;
+module.exports = router;
