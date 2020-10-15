@@ -31,14 +31,14 @@ module.exports = class Product{
     }
 
     //More on static - https://www.w3schools.com/jsref/jsref_class_static.asp
-    static fetchAll(){
+    static fetchAll(cb){
         const p = path.join(path.dirname(process.mainModule.filename), 'data', 'products.json');
         fs.readFile(p, (err, fileContent) =>{
             if(err){
-                return [];
+                cb([]); //the callback function creats an empty array
             }
 
-            return JSON.parse(fileContent);
+            cb(JSON.parse(fileContent)); //the callback function parses the info.
         })
     }
 }
