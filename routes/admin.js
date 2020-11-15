@@ -1,9 +1,7 @@
 
 const express = require('express');
 
-const productsController = require('../controller/products');
-
-const postProductController = require('../controller/products');
+const adminController = require('../controller/admin');
 
 const router = express.Router();
 
@@ -15,11 +13,14 @@ router.get('/',(req, res, next) => {
     //next(); // This allows the request to jump to the next middleware below
 });
 */
+//  /admin/add-product => GET
+router.get('/add-product', adminController.getAddProduct);
 
-router.get('/add-product', productsController.getAddProduct);
+//  /admin/add-product => GET
+router.get('/products', );
 
 //  /admin/add-product => POST
-router.post('/add-product',postProductController.postProduct);
+router.post('/add-product',adminController.postProduct);
 
 
 module.exports = router;

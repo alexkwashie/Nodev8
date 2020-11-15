@@ -37,8 +37,10 @@ module.exports = class Product{
             if(err){
                 cb([]); //the callback function creats an empty array
             }
+            else{
+                cb(JSON.parse(fileContent)); //the callback function parses the info.
+            }
 
-            cb(JSON.parse(fileContent)); //the callback function parses the info.
         })
     }
 }

@@ -24,7 +24,7 @@ app.use('/admin',adminRoutes); // '/admin' is added to every middleware in the a
 app.use(shopRoutes);
 
 //add 404 not found page
-app.use(page404.page404);
+app.use(page404.getpage404);
 
 app.listen(3000);
 
