@@ -13,7 +13,11 @@ exports.getAddProduct = (req, res, next) =>{
 };
 
 exports.postProduct = (req, res, next)=>{
-    const product = new Products(req.body.title);  //create a new object from the class blueprint
+    const title = req.body.title;
+    const imageUrl = req.body.imageUrl;
+    const description = req.body.description;
+    const price = req.body.price;
+    const product = new Products(title, imageUrl, description, price);  //create a new object from the class blueprint
     product.save();
     console.log(req.body)
     res.redirect('/');
