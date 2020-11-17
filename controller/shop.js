@@ -23,10 +23,18 @@ exports.getCart = (req, res, next) =>{
         path: '/cart',
         productCSS:true,
         activeAdd:true,
-        //layout: true //by this being true it will not use the default main handlebar file but allows u to assign a different path/location
     });
 };
 
+exports.getOrders = (req, res, next) =>{
+
+    res.render('shop/orders', {
+        pageTitle: 'Your Orders',
+        path: '/orders',
+        productCSS:true,
+        activeAdd:true,
+    });
+};
 
 exports.getIndex = (req, res, next) =>{
     Products.fetchAll( products =>{

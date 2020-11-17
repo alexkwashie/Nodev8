@@ -6,34 +6,34 @@
     <%- include('../include/navigation.ejs') %>
 
     <% if (prods.length > 0) { %>
-    <main>
-        <div class="grid">
-            <% for ( let product of prods){ %>
-                <article class="card product-item">
-                    <header class="card__header">
-                        <h1 class="product__title"><%= product.title %></h1>
-                    </header>
-                    <div class="card__image">
-                        <img src="https://www.adazing.com/wp-content/uploads/2019/02/open-book-clipart-03.png" alt="A Book">
-                    </div>
-                    <div class="card__content">
-                        <h2 class="product__price">$19.99</h2>
-                        <p class="product__description">A very interesting book about so many even more interesting things!</p>
-                    </div>
-                    <div class="card__actions">
-                        <button class="btn">Add to Cart</button>
-                    </div>
-                </article>
-            <% } %>
+        <main>
+            <div class="grid">
+                <% for ( let product of prods){ %>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title"><%= product.title %></h1>
+                        </header>
+                        <div class="card__image">
+                            <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price">£ <%= product.price %></h2>
+                            <p class="product__description"><%= product.description %></p>
+                        </div>
+                        <div class="card__actions">
+                            <button class="btn">Add to Cart</button>
+                        </div>
+                    </article>
+                <% } %>
 
-            <% } else{ %>
-                <h1> No Products are currently available. </h1>
+                <% } else{ %>
+                    <h1> No Products are currently available. </h1>
 
-                <% }%>
+                    <% }%>
 
 
-        </div>
+            </div>
 
-    </main>
+        </main>
 
 <%- include('../include/end.ejs') %>
