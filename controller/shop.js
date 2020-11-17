@@ -15,6 +15,13 @@ exports.getProducts = (req, res, next) => {
 
 };
 
+exports.getProduct = (req, res, next) =>{
+
+    const prodId = req.params.productId;
+    console.log(prodId);
+    res.redirect('/');
+};
+
 
 exports.getCart = (req, res, next) =>{
 
@@ -60,5 +67,9 @@ exports.getCheckout = (req, res, next) =>{
         //layout: true //by this being true it will not use the default main handlebar file but allows u to assign a different path/location
     });
 };
+
+
+
+
 
 
