@@ -39,6 +39,13 @@ exports.getCart = (req, res, next) =>{
     });
 };
 
+
+exports.PostCart = (req, res, next) =>{
+    const prodId = req.body.productId; //create new variable to hold input from 'add to cart' form button
+    console.log(prodId);
+    res.redirect('/cart');
+};
+
 exports.getOrders = (req, res, next) =>{
 
     res.render('shop/orders', {
