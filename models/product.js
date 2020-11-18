@@ -1,13 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 
+const p = path.join(path.dirname(process.mainModule.filename), 'data', 'products.json');
+
 const getProductsfromFile = cb =>{
-    const p = path.join(path.dirname(process.mainModule.filename), 'data', 'products.json');
+
         fs.readFile(p, (err, fileContent) =>{
             if(err){
                 cb([]); //the callback function creats an empty array
             }
             else{
+                //this is the list of products from the file
                 cb(JSON.parse(fileContent)); //the callback function parses the info.
             }
 
@@ -28,7 +31,7 @@ module.exports = class Product{
     save() {
         this.id = Math.random().toString();
 
-        getProductsfromFile(product => {
+        getProductsfromFile(products => {
             //Append the information from the webpage to the fileContent which is the products array.
             products.push(this);
 
@@ -44,4 +47,15 @@ module.exports = class Product{
     static fetchAll(cb){
         getProductsfromFile(cb);
     }
+
+    static findbyId(id, cb){
+        getProductsfromFile(products => {
+            const product = products.find(p => p.id === id);
+            cb(product)
+        })
+    }
+
+
+
+
 }
