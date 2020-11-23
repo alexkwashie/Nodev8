@@ -3,11 +3,9 @@ const Products = require('../models/product');
 
 exports.getAddProduct = (req, res, next) =>{
 
-    res.render('admin/add-product', {
-        pageTitle: 'Admin Page',
-        path: 'admin/product',
-        productCSS:true,
-        activeAdd:true,
+    res.render('admin/edit-product', {
+        pageTitle: 'Add Product',
+        path: 'admin/add-product'
         //layout: true //by this being true it will not use the default main handlebar file but allows u to assign a different path/location
     });
 };
@@ -24,6 +22,19 @@ exports.postProduct = (req, res, next)=>{
 
 };
 
+exports.getEditProduct = (req, res, next) =>{
+    const editMode = req.query.edit;
+    //console.log(editMode);
+    if(!editMode){
+        return res.redirect('/');
+    }
+    res.render('admin/edit-product', {
+        pageTitle: 'Edit Product',
+        path: 'admin/edit-product',
+        editing: editMode,
+        //layout: true //by this being true it will not use the default main handlebar file but allows u to assign a different path/location
+    });
+};
 
 exports.getProducts = (req, res, next) => {
     Products.fetchAll( products =>{
