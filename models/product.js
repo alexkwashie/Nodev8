@@ -21,7 +21,8 @@ const getProductsfromFile = cb =>{
 
 //Create an export class to define product properties
 module.exports = class Product{
-    constructor(title, imageUrl, description, price){
+    constructor(id,title, imageUrl, description, price){
+        this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
         this.description = description;
@@ -29,16 +30,33 @@ module.exports = class Product{
     }
 
     save() {
-        this.id = Math.random().toString();
+        //Get existing product from file to match the id
+        getProductFromFile(products => {
+            if (this.id){
+                const existingProductIndex = products.findIndex(
+                    prod => prod.id === this.id
+                );
+                const updatedProducts = [...products];
+                updatedProducts[existingProduct] = this; //this get the corresponding array index and replaces with the new data inputs i.e "this" which represents id, title etc.
 
-        getProductsfromFile(products => {
+                //Save to the file
+                fs.writeFile(p, JSON.stringify(updatedProducts), (err) => { //this should store all in updatedProducts to the file
+                    console.log(err);
+                });
+            }
+
+            else{
+
+            this.id = Math.random().toString();
+
             //Append the information from the webpage to the fileContent which is the products array.
             products.push(this);
 
             //Save to the file
             fs.writeFile(p, JSON.stringify(products), (err) => {
                 console.log(err);
-            });
+                });
+            }
         });
 
     }
