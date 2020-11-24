@@ -9,3 +9,5 @@ add and create app.js file
 
 Assignment:
 -Create a similar app the like previous application but for users names:
+
+sudo lsof -t -i tcp:3000 | xargs kill -9
